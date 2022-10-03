@@ -1,20 +1,19 @@
 import { test, expect } from '@playwright/test';
+import { faker } from '@faker-js/faker';
+import ContactPage from "../pages/contact.page";
 
 test.describe('Contact', () => {
-  
-    test('Fill contact form and verify sucess message', async ({ page }) => {
-        await page.goto("/contact/ ");
+    let contactPage: ContactPage;
 
+    test.beforeEach(async ({ page }) => {
+        contactPage = new ContactPage(page);
+        await contactPage.navigate();
+    })
+    
+    test('Fill contact form and verify sucess message', async ({ }) => {
         //fill the form 
-        await page.locator('.contact-name input').fill('Max Mustermann');
-        await page.locator('.contact-email input').fill('max@gmx.de');
-        await page.locator('.contact-phone input').fill('55512345');
-        await page.locator('.contact-message textarea').fill('Make love not war!');
-
-        //submit form
-        await page.locator('button[type=submit]').click();
-
-        await expect(page.locator('div[role=alert]')).toHaveText('Thanks for contacting us! We will be in touch with you shortly');
+        contactPage.submitForm(faker.name.fullName(), faker.internet.email(), faker.phone.number(), faker.lorem.paragraphs(2));
+        await expect(contactPage.alert).toHaveText('Thanks for contacting us! We will be in touch with you shortly');
     })
 
 });
