@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Contact', () => {
   
     test('Fill contact form and verify sucess message', async ({ page }) => {
-        await page.goto("https://practice.automationbro.com/contact/ ");
+        await page.goto("/contact/ ");
 
         //fill the form 
         await page.locator('.contact-name input').fill('Max Mustermann');

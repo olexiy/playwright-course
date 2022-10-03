@@ -1,6 +1,6 @@
 import { Page, Locator } from '@playwright/test';
 class HomePage {
-    page: Page;
+    private page: Page;
     getStartedButton: Locator;
     headingText: Locator;
     homeLink: Locator;
@@ -14,6 +14,10 @@ class HomePage {
         this.homeLink = this.page.locator('#primary-menu:has-text("Home")');
         this.searchIcon = this.page.locator('//*[@id="header-action"]//*[@class="tg-icon tg-icon-search"]');
         this.navLinks = this.page.locator('#primary-menu li[id*=menu]');
+    }
+
+    async navigate(){
+        await this.page.goto("/");
     }
 
 }
