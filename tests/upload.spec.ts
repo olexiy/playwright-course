@@ -2,70 +2,30 @@ import { test, expect } from '@playwright/test';
 import path from 'path';
 
 test.describe('Upload File', () => {
-    test('should upload a test file', async ({ page }) => {
-        //Open url
-        await page.goto("https://practice.automationbro.com/cart/");
+    const fileName = ['logotitle.png', '3mb-file.pdf'];
 
-        // provide test file path
-        const filePath = path.join(__dirname, '../data/logotitle.png');
+    for (const name of fileName) {
+        test(`should upload a ${name} file`, async ({ page }) => {
+            //Open url
+            await page.goto("https://practice.automationbro.com/cart/");
 
-        // upload test file
-        await page.setInputFiles('input#upfile_1', filePath);
+            // provide test file path
+            const filePath = path.join(__dirname, `../data/${name}`);
 
-        // click the submit button 
-        await page.locator('#upload_1').click();
+            // upload test file
+            await page.setInputFiles('input#upfile_1', filePath);
 
-        //assertion 
-        await expect(page.locator('#wfu_messageblock_header_1_1')).toContainText('uploaded successfully');
-    })
+            // click the submit button 
+            await page.locator('#upload_1').click();
 
-    test('should upload a test file on a hidden input field', async ({ page }) => {
-        // Open url
-        await page.goto("https://practice.automationbro.com/cart/");
+            // hardcoded sleep - WRONG
+            //await page.waitForTimeout(7000);
 
-        // provide test file path
-        const filePath = path.join(__dirname, '../data/logotitle.png');
+            // conditional await
+            //await page.locator('#wfu_messageblock_header_1_1').waitFor({ state: 'visible', timeout: 10000});
 
-        // DOM manipulation
-        await page.evaluate(() => {
-            const selector = document.querySelector('input#upfile_1');
-            if(selector){
-                selector.className = '';
-            }
-        });
-
-
-        // upload test file
-        await page.setInputFiles('input#upfile_1', filePath);
-
-        // click the submit button 
-        await page.locator('#upload_1').click();
-
-        //assertion 
-        await expect(page.locator('#wfu_messageblock_header_1_1')).toContainText('uploaded successfully');
-    })
-
-
-    test('should upload a big test file', async ({ page }) => {
-        //Open url
-        await page.goto("https://practice.automationbro.com/cart/");
-
-        // provide test file path
-        const filePath = path.join(__dirname, '../data/3mb-file.pdf');
-
-        // upload test file
-        await page.setInputFiles('input#upfile_1', filePath);
-
-        // click the submit button 
-        await page.locator('#upload_1').click();
-
-        // hardcoded sleep - WRONG
-        //await page.waitForTimeout(7000);
-
-        // conditional await
-        //await page.locator('#wfu_messageblock_header_1_1').waitFor({ state: 'visible', timeout: 10000});
-
-        // assertion await
-        await expect(page.locator('#wfu_messageblock_header_1_1')).toContainText('uploaded successfully', {timeout:10000});
-    })
+            // assertion await
+            await expect(page.locator('#wfu_messageblock_header_1_1')).toContainText('uploaded successfully', { timeout: 15000 });
+        })
+    }
 })
