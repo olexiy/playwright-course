@@ -29,9 +29,7 @@ test.describe('Home', () => {
     })
 
     test('Verify heading text is visible usint text selector', async ({ page }) => {
-        homePage = new HomePage(page);
-        await homePage.navigate();
-
+  
         //find the text locator
         const headingText = homePage.headingText;
 
