@@ -25,7 +25,7 @@ class AccountPage {
     }
 
     async navigate() {
-        await this.page.goto("/my-account");
+        await this.page.goto('/my-account');
     }
 
 }

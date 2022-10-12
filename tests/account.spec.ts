@@ -7,7 +7,6 @@ test.describe('My Account', async () => {
     test.beforeEach(async ({ page }) => {
         accountPage = new AccountPage(page);
         await accountPage.navigate();
-        await accountPage.loginUser('practiceuser1', 'PracticePass1!');
     })
 
     test('Login', async ({  }) => {
