@@ -9,10 +9,15 @@ async function globalSetup(config: FullConfig){
     //login
     const accountPage:AccountPage  = new AccountPage(page);
     await page.goto('https://practice.automationbro.com/my-account/');
+
+    //save not loggid in state
+    await page.context().storageState({path : 'notLoggedInState.json'});
+
     await accountPage.loginUser('practiceuser1', 'PracticePass1!');
 
     // save sign-in state to 'loggedInState.json'
     await page.context().storageState({path : 'loggedInState.json'});
+    
     await browser.close();
 }
 

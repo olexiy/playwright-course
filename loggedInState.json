@@ -2,7 +2,7 @@
   "cookies": [
     {
       "name": "wordpress_sec_e07ef222fe18f1b43430eb5704226509",
-      "value": "practiceuser1%7C1665755871%7CM1W9PQZ0IEfClZL3ocRGpyzJBLF9HvzlzRdJDc6EfZY%7Ca839159e5d8d51f2a1909522be5a2973ca7cc694b7d2e0f1c4f4237b2405623d",
+      "value": "practiceuser1%7C1665859470%7CtCSKIHhiCxbtpZlZlAZTw8PaVSqWCOQDnKQoMK5Za4I%7Ccc731026de06ed31d5696abecf81a5f53f15220231b6539ef1fd5014ec0293a4",
       "domain": "practice.automationbro.com",
       "path": "/wp-content/plugins",
       "expires": -1,
@@ -12,7 +12,7 @@
     },
     {
       "name": "wordpress_sec_e07ef222fe18f1b43430eb5704226509",
-      "value": "practiceuser1%7C1665755871%7CM1W9PQZ0IEfClZL3ocRGpyzJBLF9HvzlzRdJDc6EfZY%7Ca839159e5d8d51f2a1909522be5a2973ca7cc694b7d2e0f1c4f4237b2405623d",
+      "value": "practiceuser1%7C1665859470%7CtCSKIHhiCxbtpZlZlAZTw8PaVSqWCOQDnKQoMK5Za4I%7Ccc731026de06ed31d5696abecf81a5f53f15220231b6539ef1fd5014ec0293a4",
       "domain": "practice.automationbro.com",
       "path": "/wp-admin",
       "expires": -1,
@@ -22,10 +22,10 @@
     },
     {
       "name": "wp_wpfileupload_e07ef222fe18f1b43430eb5704226509",
-      "value": "LqKKqW6rtPGE77jwbj3OjLxD4qhQhqED",
+      "value": "3BsAqa4L39cTFxZKDSARE8zzTAcRFLwx",
       "domain": "practice.automationbro.com",
       "path": "/",
-      "expires": 1665755868.916798,
+      "expires": 1665859467.128218,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -35,7 +35,7 @@
       "value": "%22%22",
       "domain": ".automationbro.com",
       "path": "/",
-      "expires": 1700143070.344548,
+      "expires": 1700246669.407848,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -45,7 +45,7 @@
       "value": "%22%22",
       "domain": ".automationbro.com",
       "path": "/",
-      "expires": 1665842270,
+      "expires": 1665945869,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -55,14 +55,14 @@
       "value": "%22%22",
       "domain": ".automationbro.com",
       "path": "/",
-      "expires": 1697119070,
+      "expires": 1697222669,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "wordpress_logged_in_e07ef222fe18f1b43430eb5704226509",
-      "value": "practiceuser1%7C1665755871%7CM1W9PQZ0IEfClZL3ocRGpyzJBLF9HvzlzRdJDc6EfZY%7Ccccde64ef1abb4d1e5b022c529fcd7a3ca2443988f189dd342c24e54754cd10a",
+      "value": "practiceuser1%7C1665859470%7CtCSKIHhiCxbtpZlZlAZTw8PaVSqWCOQDnKQoMK5Za4I%7Ccd356fa2dda39780e08e2b8879605e5e7f78555be3ba40e8e0ae73a75a539ea7",
       "domain": "practice.automationbro.com",
       "path": "/",
       "expires": -1,
