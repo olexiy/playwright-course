@@ -5,3 +5,5 @@ node_modules/
 tests/home.spec.ts
 /allure-*
 .dccache
+loggedInState.json
+notLoggedInState.json
