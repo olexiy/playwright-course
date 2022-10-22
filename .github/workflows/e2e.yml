@@ -13,5 +13,11 @@ jobs:
         run: npm ci
       - name: Install Playwright
         run: npx playwright install --with-deps
-      - name: Ron your test
+      - name: Run your test
         run: npx playwright test
+      - name: Uplpad test results
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: Test Results
+          path: test-results
