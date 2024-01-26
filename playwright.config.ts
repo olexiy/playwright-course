@@ -30,7 +30,7 @@ const config: PlaywrightTestConfig = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['allure-playwright', {outputFolder: 'test-results'}],['line']],
+  reporter: [['html', { outputFile: 'test-results/report.html' }]],
   
   globalSetup: require.resolve('./utils/global-setup'),
 
@@ -38,11 +38,11 @@ const config: PlaywrightTestConfig = {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'https://practice.automationbro.com',
+    baseURL: 'https://practice.sdetunicorns.com',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
-
+    //trace: 'on-first-retry',
+    trace: 'retain-on-failure',
     storageState: 'loggedInState.json'
   },
 
@@ -52,15 +52,17 @@ const config: PlaywrightTestConfig = {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
+        headless: true,
       },
-    },
+    }
+    /*,
     {
       name: 'webkit',
       use: {
         ...devices['Desktop Safari'],
       },
     },
-    /* ,
+  
 
     {
       name: 'firefox',

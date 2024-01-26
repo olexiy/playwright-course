@@ -7,7 +7,7 @@ test.describe('Upload File', () => {
     for (const name of fileName) {
         test(`should upload a ${name} file`, async ({ page }) => {
             //Open url
-            await page.goto("https://practice.automationbro.com/cart/");
+            await page.goto("practice.sdetunicorns.com/cart/");
 
             // provide test file path
             const filePath = path.join(__dirname, `../data/${name}`);

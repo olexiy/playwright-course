@@ -11,11 +11,11 @@ test.describe('Home', () => {
 
 
     test('Open HomePage and verify title', async ({ page }) => {
-        await expect(page).toHaveTitle('Practice E-Commerce Site – Automation Bro');
+        await expect(page).toHaveTitle('Practice E-Commerce Site – SDET Unicorns – Helping you succeed in Software Quality.');
     })
 
     // eslint-disable-next-line playwright/no-skipped-test
-    test.skip('Open About page and verify title', async ({ page }) => {
+    test('Open About page and verify title', async ({ page }) => {
         await page.goto("/about ");
         await expect(page).toHaveTitle('About – Practice E-Commerce Site');
     })
@@ -46,9 +46,10 @@ test.describe('Home', () => {
         await expect(homeText).toBeEnabled();
     })
 
-    test('Verify search icon is visible using XPath selector', async ({ page }) => {
+    test('Verify search icon is visible using CSS selector', async ({ page }) => {
        //find the search icon
         const searchIcon = homePage.searchIcon;
+        console.log(await searchIcon.textContent());
         //verify searchIcon is visible
         await expect(searchIcon).toBeVisible();
     })

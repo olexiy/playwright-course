@@ -8,7 +8,7 @@ async function globalSetup(config: FullConfig){
 
     //login
     const accountPage:AccountPage  = new AccountPage(page);
-    await page.goto('https://practice.automationbro.com/my-account/');
+    await page.goto('https://practice.sdetunicorns.com//my-account/');
 
     //save not loggid in state
     await page.context().storageState({path : 'notLoggedInState.json'});
