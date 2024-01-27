@@ -12,7 +12,7 @@ class HomePage {
         this.getStartedButton = this.page.locator('#get-started');
         this.headingText = this.page.locator('text=Think different. Make different.');
         this.homeLink = this.page.locator('#zak-primary-nav:has-text("Home")');
-        this.searchIcon = this.page.locator('.zak-header-actions svg.zak-icon--search');
+        this.searchIcon = this.page.locator('xpath=//div[contains(@class, "zak-header-actions--desktop")]//div[contains(@class, "zak-header-search")]');
         this.navLinks = this.page.locator('#zak-primary-menu li[id*=menu]');
     }
 

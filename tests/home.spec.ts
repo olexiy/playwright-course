@@ -49,7 +49,6 @@ test.describe('Home', () => {
     test('Verify search icon is visible using CSS selector', async ({ page }) => {
        //find the search icon
         const searchIcon = homePage.searchIcon;
-        console.log(await searchIcon.textContent());
         //verify searchIcon is visible
         await expect(searchIcon).toBeVisible();
     })

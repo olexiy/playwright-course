@@ -11,6 +11,10 @@ class CartPage{
     uploadComponent(){
         return new UploadComponent(this.page);
     }
+
+    async navigate() {
+        await this.page.goto('/cart');
+    }
 }
 
 export default CartPage;
