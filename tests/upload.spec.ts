@@ -1,31 +1,21 @@
 import { test, expect } from '@playwright/test';
 import path from 'path';
+import CartPage from '../pages/cart.page';
 
 test.describe('Upload File', () => {
     const fileName = ['logotitle.png', '3mb-file.pdf'];
+    let cartPage: CartPage;
 
     for (const name of fileName) {
         test(`should upload a ${name} file`, async ({ page }) => {
-            //Open url
-            await page.goto("practice.sdetunicorns.com/cart/");
+            cartPage = new CartPage(page);
 
-            // provide test file path
+            await page.goto("/cart");
+
             const filePath = path.join(__dirname, `../data/${name}`);
+            cartPage.uploadComponent().uploadFile(filePath);
 
-            // upload test file
-            await page.setInputFiles('input#upfile_1', filePath);
-
-            // click the submit button 
-            await page.locator('#upload_1').click();
-
-            // hardcoded sleep - WRONG
-            //await page.waitForTimeout(7000);
-
-            // conditional await
-            //await page.locator('#wfu_messageblock_header_1_1').waitFor({ state: 'visible', timeout: 10000});
-
-            // assertion await
-            await expect(page.locator('#wfu_messageblock_header_1_1')).toContainText('uploaded successfully', { timeout: 15000 });
+            await expect(cartPage.uploadComponent().successTxt).toContainText('uploaded successfully', { timeout: 15000 });
         })
     }
 })
