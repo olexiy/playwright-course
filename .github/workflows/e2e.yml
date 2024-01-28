@@ -1,14 +1,17 @@
-name: "e2e"
-on: [push]
+name: "Playwright Tests"
+on: 
+  push:
+    branches: [ main, master ]
 jobs:
-  test-e2e:
+  test:
     name: Run E2E tests
-    runs-on: ubuntu-20.04
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: 18
       - name: Install dependencies
         run: npm ci
       - name: Install Playwright
@@ -16,8 +19,9 @@ jobs:
       - name: Run your test
         run: npx playwright test
       - name: Uplpad test results
+        uses: actions/upload-artifact@v3
         if: always()
-        uses: actions/upload-artifact@v2
         with:
-          name: Test Results
-          path: test-results
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
