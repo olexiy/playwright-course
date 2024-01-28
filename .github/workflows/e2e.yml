@@ -18,10 +18,12 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run your test
         run: npx playwright test
+      - name: Generate allure report
+        run: npx allure generate --clean
       - name: Uplpad test results
         uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: playwright-report
-          path: playwright-report/
+          name: allure-report
+          path: allure-report/
           retention-days: 30
