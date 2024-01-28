@@ -10,7 +10,7 @@ test.describe('Contact', () => {
         await contactPage.navigate();
     })
     
-    test('Fill contact form and verify sucess message', async ({ }) => {
+    test('Fill contact form and verify success message', async ({ }) => {
         //fill the form 
         contactPage.submitForm(faker.name.fullName(), faker.internet.email(), faker.phone.number(), faker.lorem.paragraphs(2));
         await expect(contactPage.alert).toHaveText('Thanks for contacting us! We will be in touch with you shortly');
